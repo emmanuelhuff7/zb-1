@@ -1,0 +1,21 @@
+[workspace]
+members = ["xtask"]
+
+[package]
+name = "zb1"
+version = "1.0.0"
+edition = "2021"
+authors = ["zvle"]
+license = "ISC"
+description = "ZB-1: a mono house-bass synthesizer"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[dependencies]
+nih_plug = { git = "https://github.com/robbert-vdh/nih-plug.git", rev = "de421011f41a6d10fc8c7a6084e4f4dee0143683" }
+nih_plug_egui = { git = "https://github.com/robbert-vdh/nih-plug.git", rev = "de421011f41a6d10fc8c7a6084e4f4dee0143683" }
+
+[profile.release]
+lto = "thin"
+strip = "symbols"
